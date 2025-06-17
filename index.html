@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prince Raj - Resume</title>
+    <style>
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --text-color: #333;
+        --light-gray: #f8f9fa;
+        --border-color: #ddd;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        color: var(--text-color);
+        background-color: #fff;
+        font-size: 13.5px;
+        line-height: 1.5;
+        padding: 16px;
+        max-width: 8.5in;
+        margin: auto;
+      }
+
+      .resume-container {
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 20px 30px;
+      }
+
+      .header-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .name-title h1 {
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+
+      .tagline {
+        font-size: 0.95rem;
+        margin-top: 4px;
+        opacity: 0.9;
+      }
+
+      .contact-info {
+        text-align: right;
+        font-size: 0.8rem;
+      }
+
+      .contact-links a {
+        color: #ecf0f1;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .contact-links a:hover {
+        color: #fff;
+      }
+
+      /* Main Layout */
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: white;
+      }
+
+      .main-column {
+        flex: 2;
+        padding: 20px 25px;
+      }
+
+      .side-column {
+        flex: 1;
+        background-color: var(--light-gray);
+        padding: 20px 25px;
+      }
+
+      /* Sections */
+      .section {
+        margin-bottom: 20px;
+      }
+
+      .section-title {
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 4px;
+        margin-bottom: 10px;
+      }
+
+      /* Items (Experience, Project, Education) */
+      .experience-item,
+      .project-item,
+      .education-item {
+        margin-bottom: 16px;
+      }
+
+      .item-header {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .item-title {
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--primary-color);
+      }
+
+      .item-subtitle {
+        font-size: 0.9rem;
+        color: var(--secondary-color);
+        margin-top: 2px;
+      }
+
+      .date {
+        font-size: 0.8rem;
+        color: var(--accent-color);
+        font-weight: 500;
+      }
+
+      .tech-stack {
+        font-style: italic;
+        font-size: 0.85rem;
+        color: #555;
+        margin: 4px 0;
+      }
+
+      .description ul {
+        padding-left: 18px;
+      }
+
+      .description li {
+        margin-bottom: 4px;
+        font-size: 0.85rem;
+      }
+
+      /* Skills */
+      .skills-group {
+        margin-bottom: 15px;
+      }
+
+      .skills-group h4 {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+        color: var(--primary-color);
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .skill-tag {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+      }
+
+      /* Certifications */
+      .certification-item {
+        margin-bottom: 10px;
+      }
+
+      .certification-title {
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .certification-link {
+        font-size: 0.8rem;
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+
+      .certification-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Links (Icons) */
+      .profile-links {
+        margin-top: 10px;
+      }
+
+      .profile-link {
+        display: flex;
+        align-items: center;
+        margin-bottom: 6px;
+        font-size: 0.85rem;
+      }
+
+      .profile-link a {
+        color: var(--primary-color);
+        text-decoration: none;
+        margin-left: 6px;
+      }
+
+      .profile-link a:hover {
+        text-decoration: underline;
+      }
+
+      .profile-link::before {
+        content: "🔗";
+        margin-right: 4px;
+        font-size: 0.9rem;
+      }
+
+      /* Buttons */
+      .project-buttons {
+        margin-top: 6px;
+      }
+
+      .project-button {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 2px 10px;
+        font-size: 0.75rem;
+        border-radius: 4px;
+        margin-right: 10px;
+        text-decoration: none;
+      }
+
+      .project-button:hover {
+        background-color: var(--primary-color);
+      }
+
+      /* Print */
+      @media print {
+        body {
+          padding: 0;
+        }
+        .resume-container {
+          box-shadow: none;
+          border: none;
+        }
+      }
+
+      header {
+        background: linear-gradient(to right, #2c3e50, #3498db);
+        color: white;
+        padding: 20px 30px;
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .left {
+        flex: 2;
+      }
+
+      .right {
+        flex: 1;
+        text-align: right;
+        font-size: 0.9rem;
+      }
+
+      .tagline {
+        margin-top: 8px;
+        font-size: 1rem;
+        line-height: 1.4;
+        opacity: 0.95;
+      }
+
+      .skills-group {
+        margin-bottom: 10px;
+      }
+
+      .skills-group h4 {
+        margin-bottom: 5px;
+        font-size: 0.95rem;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .skill-tag {
+        background-color: #2c3e50;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        line-height: 1;
+      }
+
+      .side-column {
+        padding: 20px; /* Reduced from 30px */
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+
+      :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --text-color: #333;
+        --light-gray: #f8f9fa;
+        --border-color: #ddd;
+      }
+
+      body {
+        font-size: 12.25px; /* Reduced from 13.5px */
+        line-height: 1.45;
+      }
+
+      /* Header */
+      .name-title h1 {
+        font-size: 1.6rem; /* Slightly reduced */
+      }
+
+      .tagline {
+        font-size: 0.85rem;
+      }
+
+      .contact-info {
+        font-size: 0.75rem;
+      }
+
+      .contact-links a {
+        font-size: 0.75rem;
+      }
+
+      /* Sections */
+      .section-title {
+        font-size: 1rem;
+      }
+
+      /* Items (Experience, Project, Education) */
+      .item-title {
+        font-size: 0.95rem;
+      }
+
+      .item-subtitle {
+        font-size: 0.8rem;
+      }
+
+      .date {
+        font-size: 0.75rem;
+      }
+
+      .tech-stack {
+        font-size: 0.75rem;
+      }
+
+      .description li {
+        font-size: 0.75rem;
+      }
+
+      /* Skills */
+      .skills-group h4 {
+        font-size: 0.85rem;
+      }
+
+      .skill-tag {
+        font-size: 0.7rem;
+      }
+
+      /* Certifications */
+      .certification-title {
+        font-size: 0.85rem;
+      }
+
+      .certification-link {
+        font-size: 0.75rem;
+      }
+
+      /* Profile Links */
+      .profile-link {
+        font-size: 0.75rem;
+      }
+
+      .profile-link::before {
+        font-size: 0.85rem;
+      }
+
+      .profile-link a {
+        font-size: 0.75rem;
+      }
+
+      /* Project Buttons */
+      .project-button {
+        font-size: 0.7rem;
+      }
+
+      .main-column {
+        flex: 2.5; /* Increased to take more space */
+      }
+
+      .side-column {
+        flex: 1.2; /* Reduced from 1 */
+        padding: 16px; /* Reduced padding for compactness */
+      }
+
+      .skill-tag {
+        font-size: 0.68rem; /* Slightly smaller */
+        padding: 3px 7px; /* Slightly tighter padding */
+      }
+
+      .side-column {
+        flex: 1.2; /* Make sidebar narrower */
+        padding: 12px 16px; /* Less horizontal padding (was 20px) */
+      }
+
+      .skills-list {
+        gap: 4px; /* Reduce spacing between tags */
+      }
+
+      .skill-tag {
+        font-size: 0.68rem;
+        padding: 3px 6px;
+        margin: 0; /* Eliminate extra margin if present */
+      }
+
+      .right {
+        text-align: right;
+        padding-right: 0;
+        margin-right: 0;
+      }
+
+      .side-column {
+        padding: 10px 20px; /* was larger before */
+      }
+
+      .skills-group,
+      .certification-item,
+      .profile-link {
+        margin-bottom: 8px; /* was 10–15px */
+      }
+
+      .skills-group h4 {
+        margin-bottom: 3px;
+        font-size: 0.8rem;
+      }
+
+      .skill-tag {
+        padding: 2px 6px;
+        font-size: 0.65rem;
+        line-height: 1.1;
+      }
+
+      .side-column,
+      .skills-group,
+      .profile-links {
+        line-height: 1.3;
+      }
+
+      .profile-link {
+        font-size: 0.75rem;
+        margin-bottom: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-container">
+      <header>
+        <div class="header-container">
+          <div class="left">
+            <h1>PRINCE RAJ</h1>
+            <p class="tagline">
+              Computer Science undergraduate specializing in frontend
+              development and machine learning, creating intelligent and
+              scalable web applications.
+            </p>
+          </div>
+          <div class="right contact-info">
+            <p>princeraj1161@gmail.com</p>
+            <p>+91-7301742128</p>
+            <p>Hazaribagh, Jharkhand</p>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="main-column">
+          <!-- Experience -->
+          <div class="section">
+            <h3 class="section-title">EXPERIENCE</h3>
+
+            <div class="experience-item">
+              <div class="item-header">
+                <h4 class="item-title">Machine Learning Intern</h4>
+                <span class="date">Present</span>
+              </div>
+              <div class="item-subtitle">SETV Global</div>
+              <div class="tech-stack">
+                Technologies: Python, YOLO, Object Detection, CVAT
+              </div>
+              <div class="description">
+                <ul>
+                  <li>
+                    Performed Exploratory Data Analysis (EDA) to understand
+                    image dataset characteristics.
+                  </li>
+                  <li>
+                    Applied YOLO (You Only Look Once) algorithm for real-time
+                    object detection and classification tasks.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="experience-item">
+              <div class="item-header">
+                <h4 class="item-title">Machine Learning Externship</h4>
+                <span class="date">2023</span>
+              </div>
+              <div class="item-subtitle">SmartBridge</div>
+              <div class="tech-stack">
+                Technologies: HTML, CSS, Python, Flask, sklearn
+              </div>
+              <div class="description">
+                <ul>
+                  <li>
+                    Developed a Machine Learning model to predict traffic flow
+                    for a given day, achieving 95% accuracy.
+                  </li>
+                  <li>
+                    Designed the frontend using HTML & CSS for user interaction.
+                  </li>
+                  <li>
+                    Created a model that takes 9 input features (e.g., season,
+                    month, day, weather conditions) to generate predictions.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projects -->
+          <div class="section">
+            <h3 class="section-title">PROJECTS</h3>
+
+            <div class="project-item">
+              <div class="item-header">
+                <h4 class="item-title">Plant Disease Detection</h4>
+                <span class="date">2025</span>
+              </div>
+              <div class="tech-stack">
+                Technologies: TensorFlow, Streamlit, CNN
+              </div>
+              <div class="description">
+                <ul>
+                  <li>
+                    Developed a deep learning model using Convolutional Neural
+                    Networks (CNN) to classify plant diseases into 38 categories
+                    for early detection and diagnosis.
+                  </li>
+                  <li>
+                    Implemented CNN with multiple convolutional layers for
+                    feature extraction.
+                  </li>
+                  <li>
+                    Applied data augmentation, dropout, and batch normalization
+                    for improved accuracy.
+                  </li>
+                  <li>
+                    Achieved 97% classification accuracy, making it suitable for
+                    real-world agricultural applications.
+                  </li>
+                </ul>
+              </div>
+              <div class="project-buttons">
+                <a
+                  href="https://plant-disease-princeraj1161.streamlit.app/"
+                  class="project-button"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/PrinceRaj1161/Plant-disease/tree/main"
+                  class="project-button"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+
+            <div class="project-item">
+              <div class="item-header">
+                <h4 class="item-title">Travel Recommendation System</h4>
+                <span class="date">2024</span>
+              </div>
+              <div class="tech-stack">
+                Technologies: Streamlit, pandas, numpy, scikit-learn,
+                tensorflow, CSV
+              </div>
+              <div class="description">
+                <ul>
+                  <li>
+                    Created a website that recommends hotels, restaurants using NLP
+                    techniques.
+                  </li>
+                  <li>
+                    Implemented search functionality for flight and train
+                    details by filtering data from CSV files.
+                  </li>
+                  <li>
+                    Used machine learning algorithms to personalize travel
+                    recommendations based on user preferences.
+                  </li>
+                </ul>
+              </div>
+              <div class="project-buttons">
+                <a
+                  href="https://travelrecommendation.streamlit.app/"
+                  class="project-button"
+                  >Demo</a
+                >
+                <a
+                  href="https://github.com/PrinceRaj1161/travel-recommendation"
+                  class="project-button"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-column">
+          <!-- Education -->
+          <div class="section">
+            <h3 class="section-title">EDUCATION</h3>
+            <div class="education-item">
+              <div class="item-header">
+                <h4 class="item-title">B.Tech in Computer Science</h4>
+                <span class="date">2021 - Present</span>
+              </div>
+              <div class="item-subtitle">Vellore Institute of Technology</div>
+              <div class="education-details">
+                <p>CGPA: 8.47/10.0</p>
+                <p>
+                  Relevant coursework: Data Structures, Algorithms, Machine
+                  Learning
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div class="section">
+            <h3 class="section-title">SKILLS</h3>
+
+            <div class="skills-group">
+              <h4>Programming Languages</h4>
+              <div class="skills-list">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">C/C++ (Basic)</span>
+                <span class="skill-tag">Java</span>
+              </div>
+            </div>
+
+            <div class="skills-group">
+              <h4>Frontend Development</h4>
+              <div class="skills-list">
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+              </div>
+            </div>
+
+            <div class="skills-group">
+              <h4>Database Technologies</h4>
+              <div class="skills-list">
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">MySQL</span>
+              </div>
+            </div>
+
+            <div class="skills-group">
+              <h4>Machine Learning</h4>
+              <div class="skills-list">
+                <span class="skill-tag">scikit-learn</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">Keras</span>
+                <span class="skill-tag">pandas</span>
+                <span class="skill-tag">numpy</span>
+              </div>
+            </div>
+
+            <div class="skills-group">
+              <h4>Deployment Platforms</h4>
+              <div class="skills-list">
+                <span class="skill-tag">Vercel</span>
+                <span class="skill-tag">Render</span>
+                <span class="skill-tag">GitHub Pages</span>
+                <span class="skill-tag">Streamlit</span>
+                <span class="skill-tag">Flask</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="section">
+            <h3 class="section-title">CERTIFICATIONS</h3>
+
+            <div class="certification-item">
+              <div class="certification-title">
+                SmartBridge AI and ML Powered by Google Developers
+              </div>
+              <a
+                href="https://smartinternz.com/internships/google_developers/587990a2aa86d5e79b670d42cb21aae0"
+                class="certification-link"
+                >View Certificate</a
+              >
+            </div>
+
+            <div class="certification-item">
+              <div class="certification-title">
+                Infosys Principles of Generative AI
+              </div>
+              <a
+                href="https://infyspringboard.onwingspan.com/public-assets/infosysheadstart/cert/lex_auth_013809178768416768124_shared/1-8a00fa2e-d31f-4bbf-91fa-43cc47649678.pdf"
+                class="certification-link"
+                >View Certificate</a
+              >
+            </div>
+
+            <div class="certification-item">
+              <div class="certification-title">
+                Infosys Artificial Intelligence Primer
+              </div>
+              <a
+                href="https://infyspringboard.onwingspan.com/public-assets/infosysheadstart/cert/lex_auth_0134898743771545602_shared/1-df5eada6-7611-44c9-b50d-3dadac4d376a.pdf"
+                class="certification-link"
+                >View Certificate</a
+              >
+            </div>
+          </div>
+
+          <!-- Profile Links -->
+          <div class="section">
+            <h3 class="section-title">PROFILE LINKS</h3>
+
+            <div class="profile-links">
+              <div class="profile-link">
+                <a
+                  href="https://www.linkedin.com/in/princeraj1161/"
+                  target="_blank"
+                  >🔗 LinkedIn</a
+                >
+              </div>
+              <div class="profile-link">
+                <a href="https://github.com/PrinceRaj1161" target="_blank"
+                  >🐙 GitHub</a
+                >
+              </div>
+              <div class="profile-link">
+                <a
+                  href="https://princeraj1161.github.io/portfolio/"
+                  target="_blank"
+                  >🌐 Portfolio</a
+                >
+              </div>
+              <div class="profile-link">
+                <a
+                  href="https://www.geeksforgeeks.org/user/princeraj1161/"
+                  target="_blank"
+                  >💻 GeeksforGeeks</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
